@@ -13,14 +13,16 @@
 
 //suppose to make an animation for keys, seems like not doing anything :(
 function removeTransition(e) {
-console.log(e);
+  console.log(e);
   if(e.propertyName !== 'transform') return;
   this.classList.remove('playing');
   //$(this).on('transitionend');
   //console.log(e.propertyName);
 }
 
-
-const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));//not functioning
-window.addEventListener('keydown', playSound);
+$(document).ready(function() {
+  const keys = document.querySelectorAll('.key');
+  console.log(keys);
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));//not functioning
+  window.addEventListener('keydown', playSound);
+});
